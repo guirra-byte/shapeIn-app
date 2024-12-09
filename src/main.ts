@@ -1,10 +1,10 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { TableResponsiveStackDemo } from './app/table-responsive-stack-demo';
+import { CheckInTable } from './app/checkin-table';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { Routes, provideRouter } from '@angular/router';
 
 const routes: Routes = [];
 
-bootstrapApplication(TableResponsiveStackDemo, {
+bootstrapApplication(CheckInTable, {
 providers: [provideAnimationsAsync(), provideRouter(routes)],
 }).catch((err) => console.error(err));

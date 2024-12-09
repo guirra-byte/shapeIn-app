@@ -1,0 +1,12 @@
+{
+  "/checkin/events": {
+    "target": "http://localhost:8888/checkin/events",
+    "secure": true,
+    "changeOrigin": true
+  },
+  "/checkin/add-user": {
+    "target": "http://localhost:8888/checkin/add-user",
+    "secure": true,
+    "changeOrigin": true
+  }
+}

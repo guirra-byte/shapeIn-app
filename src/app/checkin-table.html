@@ -1,0 +1,89 @@
+<div>
+  <div class="header">
+    <div id="title">
+      <h1>CheckIn</h1>
+    </div>
+
+    <div id="actions">
+      <p-button (onClick)="showDialog()" label="Adicionar usuário" icon="pi pi-user-plus" severity="success"/>
+        <p-dialog header="Adicionar usuário" [modal]="true" [(visible)]="visible" [style]="{ width: '35rem' }">
+            <span class="p-text-secondary block mb-5">Informações do usuário</span>
+            <div class="flex align-items-center gap-3 mb-3">
+                <label for="name" class="font-semibold w-6rem">Nome</label>
+                <input pInputText [(ngModel)]="name" id="username" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="flex align-items-center gap-3 mb-5">
+                <label for="email" class="font-semibold w-6rem">Email</label>
+                <input pInputText mask="seuEmail@gmail.com" placeholder="seuEmail@gmail.com" [(ngModel)]="email" id="email" class="flex-auto" autocomplete="off" />
+            </div>
+            <div id="select-stage" class="flex flex-wrap gap-3">
+              <label for="stage" class="font-semibold w-6rem">Turma</label>
+              <div class="flex align-items-center">
+                  <p-radioButton
+                      name="stage"
+                      value="RECRUIT"
+                      [(ngModel)]="stage"
+                      inputId="recruit" />
+                  <label for="recruit" class="ml-2">
+                      Recruit
+                  </label>
+              </div>
+
+              <div class="flex align-items-center">
+                  <p-radioButton
+                      name="stage"
+                      value="INTERN"
+                      [(ngModel)]="stage"
+                      inputId="intern" />
+                  <label for="intern" class="ml-2">
+                      Intern
+                  </label>
+              </div>
+
+              <div class="flex align-items-center">
+                  <p-radioButton
+                      name="stage"
+                      value="SHAPER"
+                      [(ngModel)]="stage"
+                      inputId="shaper" />
+                  <label for="shaper" class="ml-2">
+                      Shaper
+                  </label>
+              </div>
+          </div>
+
+            <div class="flex justify-content-end gap-2">
+                <p-button label="Cancel" severity="secondary" (onClick)="visible = false" />
+                <p-button label="Save" (onClick)="saveInfos()" />
+            </div>
+        </p-dialog>
+
+      <p-button id="gen-qrcodes" label="Gerar Qr Codes" (onClick)="sendToBackend()" severity="contrast" icon="pi pi-users" badge={{qrCodesToGen}}
+        badgeClass="p-badge-info" />
+    </div>
+  </div>
+  <div class="card">
+    <p-table [value]="checkins" responsiveLayout="stack" [breakpoint]="'960px'"
+      [tableStyle]="{'min-width': '50rem', 'font-family': 'Poppins', 'font-style': 'bold'}">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Turma</th>
+          <th>Horário</th>
+          <th>Status</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-checkin let-columns="columns">
+        <tr>
+          <td><span class="p-column-title">Nome</span>{{checkin.name}}</td>
+          <td><span class="p-column-title">Email</span>{{checkin.email}}</td>
+          <td><span class="p-column-title">Turma</span>{{checkin.stage}}</td>
+          <td><span class="p-column-title">Horário</span>{{checkin.arrived_at}}</td>
+          <td>
+            <p-tag [value]="checkin.status" icon="pi pi-user" [severity]="getSeverity(checkin.status)" />
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

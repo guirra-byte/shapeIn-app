@@ -105,7 +105,6 @@
     import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     import { HttpClientModule } from '@angular/common/http';
     import { NgModule } from '@angular/core';
-    import { ProductService } from 'src/service/productservice';
 
     @NgModule({
       imports: [
@@ -323,7 +322,6 @@
         InputIconModule,
         AutoFocusModule
       ],
-      providers: [ ProductService ]
+      providers: [  ]
     })
     export class ImportsModule {}
-    
