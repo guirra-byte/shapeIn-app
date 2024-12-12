@@ -1,7 +1,7 @@
 # Check-in Application 🚀
 
 > [!CAUTION]
-> Esta aplicação de Check-in **utiliza um sistema de atualizações em tempo real via Server-Sent Events (SSE) para notificar os participantes assim que um QR Code é escaneado**. 
+> Esta aplicação de Check-in **utiliza um sistema de atualizações em tempo real via Server-Sent Events (SSE) para notificar assim que participante realizar o checkin no evento/aula tendo seu qrcode escaneado**. 
 
 ![image](https://github.com/user-attachments/assets/68b1a6c8-5d5e-4e45-9492-4e3a8567214a)
 
